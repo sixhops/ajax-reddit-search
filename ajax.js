@@ -1,5 +1,6 @@
 // Set up the page when it loads.
 $(function() {
+  console.log("somethig");
   // attach the form submission to the search function
   $("#search-form").on('submit', search);
 });
