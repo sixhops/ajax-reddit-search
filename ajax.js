@@ -1,5 +1,6 @@
 // Set up the page when it loads.
 $(function() {
+  console.log("somethig");
   // attach the form submission to the search function
   $("#search-form").on('submit', search);
 });
@@ -20,6 +21,7 @@ function search(event) {
   $.get('https://www.reddit.com/search.json', {
     q: userQuery
   }).done(function(response) {
+    debugger;
     console.log(response);
 
     var results = response.data.children;
@@ -27,7 +29,9 @@ function search(event) {
     	var result = results[i].data;
     	addSearchResult(result);
     }
-  });
+  }).fail(function() {
+    console.log("something failed");
+  })
 }
 
 // Clear previous search results.
